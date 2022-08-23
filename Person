@@ -1,0 +1,120 @@
+<?php
+class Person {
+  private $name;
+  private $lastname;
+  private $age;
+  private $mother;
+  private $father;
+  private $dogs;
+  private $cat;
+  private $car;
+
+  function __construct($name, $lastname, $age, $mother=null, $father=null) {
+    $this->name = $name;
+    $this->lastname = $lastname;
+    $this->age = $age;
+    $this->mother = $mother;
+    $this->father = $father;
+    
+
+  }
+
+
+
+  function getName(){
+    return $this -> name;
+  }
+
+
+  function getLastName(){
+    return $this -> lastname;
+  }
+
+
+  function getAge(){
+    return $this -> age;
+  }
+
+
+  function getMother(){
+    return $this -> mother;
+  }
+
+
+  function getFather(){
+    return $this -> father;
+  }
+
+
+  function getInfo(){
+    return "<h3>A short story about me</h3><br>"."My name is ".
+    $this->getName()." ".
+    
+    $this->getLastName().". "."I'm ".
+    
+    $this->getAge()." years old.<br>".
+    "My mother's name is ".
+    
+    $this->getMother()->getName()." ".
+    
+    $this->getMother()->getLastName().". "."She ".
+    
+    $this->getMother()->getAge()." years old.<br>".
+    "My father's name is ".
+    
+    $this->getFather()->getName()." ".
+    
+    $this->getFather()->getLastName().". "."He ".
+    
+    $this->getFather()->getAge()." years old.<br>".
+    "My beloved maternal grandfather's name is ".
+    
+    $this->getMother()->getMother()->getName()." ".
+    
+    $this->getMother()->getMother()->getLastName().". "."He ".
+    
+    $this->getMother()->getMother()->getAge()." years old.<br>".
+    "My beloved maternal grandmother's name is ".
+    
+    $this->getMother()->getFather()->getName()." ".
+    
+    $this->getMother()->getFather()->getLastName().". "."She ".
+    
+    $this->getMother()->getFather()->getAge()." years old.<br>".
+    "My beloved paternal grandmother's name is ".
+    
+    $this->getFather()->getMother()->getName()." ".
+    
+    $this->getFather()->getMother()->getLastName().". "."She ".
+    
+    $this->getFather()->getMother()->getAge()." years old.<br>".
+    "My beloved paternal grandfather's name is ".
+    
+    $this->getFather()->getFather()->getName()." ".
+    
+    $this->getFather()->getFather()->getLastName().". "."He ".
+    
+    $this->getFather()->getFather()->getAge()." years old.";
+  }
+}
+
+$anna = new Person("Anna", "Popova", 61);
+$vladimir = new Person("Vladimir", "Ivanov", 63);
+$viktor = new Person("Viktor", "Ivanov", 66);
+$olya = new Person("Olya", "Ivanova", 65);
+
+
+
+
+
+
+$alex = new Person("Alex", "Ivanov", 40, $olya, $viktor);
+$katya = new Person("Katya", "Ivanova", 40, $vladimir, $anna);
+$valera = new Person("Valera", "Ivanov", 11, $katya, $alex);
+
+
+
+
+
+
+echo $valera -> getInfo();
